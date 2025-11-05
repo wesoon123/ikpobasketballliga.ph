@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villagonzalo 1 Tournament 2025</title>
+    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/js/index.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+    ">
+    </script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Villagonzalo 1 Tournament 2025</h1>
+    </header>
+    <main> 
+        <section class="introduction">
+            <h2>Latest News</h2>
+            <div class="div-intro-content">
+            <div class="desc-intro">
+            <img src="./src/image/headlines.jpg" alt="Tournament Banner">
+            <p>Tejero Basketball Chrismast Leauge Opening Day 2025</p>
+            </div>
+            <div class="slide-intro">
+                <img src="./src/image/gallery-05.jpg" alt="Side Image">
+                <img src="./src/image/gallery-08.jpg" alt="Side Image">
+                <img src="./src/image/gallery-03.jpg" alt="Side Image">
+            </div>
+            </div>
+        </section>
+        <section class="highlights">
+            <h2>Highlights</h2>
+            <div class="highlights-videos">
+                <div class="video-container">
+                    <img src="./src/image/highlights-01.jpg" alt="Side Image">
+                    <p>Manokan vs Sagrada de pan-os</p>
+                </div>
+                <div class="video-container">
+                    <img src="./src/image/highlights-02.jpg" alt="Side Image">
+                    <p>Sapanta Hog Ilok vs Enriquez Empire</p>
+                </div>
+                <div class="video-container">
+                    <img src="./src/image/highlights-03.jpg" alt="Side Image">
+                    <p>River side vs Seahall</p>
+                </div>
+            </div>
+        </section>
+        <section class="teams">
+            <h2>Participating Teams</h2>
+            <div class="splide" role="group" aria-label="Splide Basic HTML Example">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide"><img src="./src/image/manokan.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/sapanta.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                        <li class="splide__slide"><img src="./src/image/empire.jpg"/></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="post-matches">
+            <h2>Last Match</h2>
+            <p>Manokan defeated Sagrada de pan-os with a score of 3-1 on January 5, 2025.</p>
+            <div class="image-match">
+                <img src="./src/image/empire.jpg" alt="Last Match 1">
+                <h3>45:35</h3>
+                <img src="./src/image/sapanta.jpg" alt="Last Match 3">
+            </div>
+            <ul>
+                <li>TE - Rey Joshua Enriquez - 35 pts</li>
+                <li>TE - Rey James Enriquez - 15 pts</li>
+                <li>TS - Johnric Enriquez - 10 rbs</li>
+            </ul>
+        </section>
+        <section class="next-matches">
+            <h2>Next Match</h2>
+            <P>Manokan vs Sapanta @Tejero Gym 11/16/2025 - 9:00pm</P>
+            <div class="image-match">
+                <img src="./src/image/manokan.jpg" alt="Last Match 1">
+                <h3>VS</h3>
+                <img src="./src/image/sapanta.jpg" alt="Last Match 3">
+            </div>
+        </section>
+        <section class="gallery">
+            <h2>Gallery</h2>
+            <div class="image-grid">
+                <img src="./src/image/gallery-01.jpg" alt="Gallery Image 1">
+                <img src="./src/image/gallery-02.jpg" alt="Gallery Image 2">
+                <img src="./src/image/gallery-03.jpg" alt="Gallery Image 3">
+                <img src="./src/image/gallery-04.jpg" alt="Gallery Image 4">
+                <img src="./src/image/gallery-05.jpg" alt="Gallery Image 5">
+                <img src="./src/image/gallery-06.jpg" alt="Gallery Image 6">
+                <img src="./src/image/gallery-07.jpg" alt="Gallery Image 7">
+                <img src="./src/image/gallery-08.jpg" alt="Gallery Image 8">
+                <img src="./src/image/gallery-09.jpg" alt="Gallery Image 9">
+            </div>
+        </section>
+        <section class="schedule-calendar">
+            <h1>Tejero Basketball Schedule Calendar</h1>
+            <div id="calendar"></div>
+            <div id="eventModal">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modalTitle">Event Title</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <p><strong>Date:</strong> <span id="modalDate"></span></p>
+                </div>
+                </div>
+            </div>
+            <script src="./calendar.js"></script>
+        </section>
+        <!-- <section class="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out at
+        </section> -->
+    </main>
+</body>
+</html>
