@@ -162,6 +162,7 @@ main {
       display: flex;
       flex-direction: column;
       padding: 2px;
+      align-items: anchor-center;
 
         @media screen and (max-width:900px) {
           flex-direction: row;
@@ -198,7 +199,7 @@ main {
     align-content: center;
     width: 100%;
     gap: 12px;
-    background-color:black;
+
    }
 
 
@@ -541,3 +542,55 @@ main {
         padding: 5px;
       }
     }
+
+    /* modal here*/
+
+    .modal-teams {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+
+  .modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+
+    .modal-image {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 24px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: #333;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}

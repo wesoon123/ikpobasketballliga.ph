@@ -12,6 +12,7 @@
     https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
     ">
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.1/dist/cdn.min.js"></script>
     <link href="
     https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     " rel="stylesheet">
@@ -22,19 +23,44 @@
         <h1>Villagonzalo 1 Tournament 2025</h1>
     </header>
     <main> 
-        <section class="introduction">
-            <h2>Latest News</h2>
-            <div class="div-intro-content">
+    <section class="introduction" x-data="{ 
+            featured: './src/image/headlines.jpg', 
+            images: [
+                './src/image/gallery-05.jpg', 
+                './src/image/gallery-08.jpg', 
+                './src/image/gallery-03.jpg'
+            ]
+        }">
+        <h2>Latest News</h2>
+
+        <div class="div-intro-content">
+            
+            <!-- Featured image -->
             <div class="desc-intro">
-            <img src="./src/image/headlines.jpg" alt="Tournament Banner">
-            <p>Tejero Basketball Chrismast Leauge Opening Day 2025</p>
+            <img 
+                :src="featured" 
+                alt="Tournament Banner" 
+            >
+            <p style="margin-top:10px; font-weight:500;">
+                Tejero Basketball Christmas League Opening Day 2025
+            </p>
             </div>
+
+            <!-- Thumbnail side images -->
             <div class="slide-intro">
-                <img src="./src/image/gallery-05.jpg" alt="Side Image">
-                <img src="./src/image/gallery-08.jpg" alt="Side Image">
-                <img src="./src/image/gallery-03.jpg" alt="Side Image">
+            <template x-for="img in images" :key="img">
+                <img 
+                :src="img" 
+                alt="Side Image" 
+                @click="featured = img"
+                style="width:100%; cursor:pointer; height:auto; object-fit:cover; transition:transform 0.2s ease;"
+                @mouseover="event.target.style.transform='scale(1.05)'"
+                @mouseleave="event.target.style.transform='scale(1)'"
+                >
+            </template>
             </div>
-            </div>
+
+        </div>
         </section>
         <section class="highlights">
             <h2>Highlights</h2>
@@ -53,24 +79,49 @@
                 </div>
             </div>
         </section>
-        <section class="teams">
-            <h2>Participating Teams</h2>
-            <div class="splide" role="group" aria-label="Splide Basic HTML Example">
-                <div class="splide__track">
-                        <ul class="splide__list">
-                            <li class="splide__slide" style="width: 200px"><img src="./src/image/manokan.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/sandugo.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/agila.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/sapanta.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/tigasin.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/bayani.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/empire.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/kidlat.jpg"></li>
-                            <li class="splide__slide"><img src="./src/image/habagat.jpg"></li>
-                        </ul>
-                </div>
-            </div>
-        </section>
+        <section class="teams" x-data="{ open: false, activeImg: '' }">
+  <h2>Participating Teams</h2>
+
+  <div class="splide" role="group" aria-label="Participating Teams Carousel">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <template x-for="img in [
+          './src/image/manokan.jpg',
+          './src/image/sandugo.jpg',
+          './src/image/agila.jpg',
+          './src/image/sapanta.jpg',
+          './src/image/tigasin.jpg',
+          './src/image/bayani.jpg',
+          './src/image/empire.jpg',
+          './src/image/kidlat.jpg',
+          './src/image/habagat.jpg'
+        ]" :key="img">
+          <li class="splide__slide">
+            <img 
+              :src="img" 
+              alt="Team Logo" 
+              @click="activeImg = img; open = true"
+              style="cursor:pointer;"
+            >
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div 
+    x-show="open" 
+    x-transition 
+    @click.self="open = false"
+    class="modal-teams"
+  >
+    <div class="modal-content">
+      <button @click="open = false" class="close-btn">&times;</button>
+      <img :src="activeImg" alt="Team Image" class="modal-image">
+    </div>
+  </div>
+</section>
         <section class="post-matches">
             <h2>Last Match</h2>
             <p>Manokan defeated Sagrada de pan-os with a score of 3-1 on January 5, 2025.</p>
@@ -94,18 +145,41 @@
                 <img src="./src/image/sapanta.jpg" alt="Last Match 3">
             </div>
         </section>
-        <section class="gallery">
-            <h2>Gallery</h2>
-            <div class="image-grid">
-                <img src="./src/image/gallery-01.jpg" alt="Gallery Image 1">
-                <img src="./src/image/gallery-02.jpg" alt="Gallery Image 2">
-                <img src="./src/image/gallery-03.jpg" alt="Gallery Image 3">
-                <img src="./src/image/gallery-04.jpg" alt="Gallery Image 4">
-                <img src="./src/image/gallery-05.jpg" alt="Gallery Image 5">
-                <img src="./src/image/gallery-06.jpg" alt="Gallery Image 6">
-                <img src="./src/image/gallery-07.jpg" alt="Gallery Image 7">
-                <img src="./src/image/gallery-08.jpg" alt="Gallery Image 8">
-                <img src="./src/image/gallery-09.jpg" alt="Gallery Image 9">
+        <section class="gallery" x-data="{ open: false, activeImg: '' }">
+        <h2>Gallery</h2>
+
+        <div class="image-grid">
+                <template x-for="img in [
+                './src/image/gallery-01.jpg',
+                './src/image/gallery-02.jpg',
+                './src/image/gallery-03.jpg',
+                './src/image/gallery-04.jpg',
+                './src/image/gallery-05.jpg',
+                './src/image/gallery-06.jpg',
+                './src/image/gallery-07.jpg',
+                './src/image/gallery-08.jpg',
+                './src/image/gallery-09.jpg'
+                ]" :key="img">
+                <img 
+                    :src="img" 
+                    alt="Gallery Image" 
+                    @click="activeImg = img; open = true" 
+                    style="cursor:pointer;"
+                >
+                </template>
+            </div>
+
+            <!-- Modal -->
+            <div 
+                x-show="open" 
+                x-transition 
+                @click.self="open = false"
+                class="modal-teams"
+            >
+                <div class="modal-content">
+                <button @click="open = false" class="close-btn">&times;</button>
+                <img :src="activeImg" alt="Team Image" class="modal-image">
+                </div>
             </div>
         </section>
         <section class="schedule-calendar">
