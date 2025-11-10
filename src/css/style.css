@@ -98,6 +98,30 @@ header {
     position: relative;
     width: 100%;
     opacity: 0.9; 
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 200px;
+      height: auto;
+      padding: 10px;
+
+      @media screen and (max-width: 600px) {
+        max-width: 80px;
+      }
+    }
+
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: whitesmoke;
+      font-size: clamp(2rem, 5vw, 4rem);
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 }
 
 main {
